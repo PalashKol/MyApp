@@ -21,7 +21,7 @@ jobs:
         uses: NuGet/setup-nuget@v1.1.1
 
       - name: Restore NuGet Packages
-        run: nuget restore MyApp.csproj
+        run: nuget restore MyApp.sln
 
       - name: Build with MSBuild
-        run: msbuild MyApp.csproj /p:Configuration=Release
+        run: msbuild MyApp.sln /p:Configuration=Release
