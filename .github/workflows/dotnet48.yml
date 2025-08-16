@@ -1,0 +1,27 @@
+name: .NET Framework 4.8 CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: windows-latest   # Required for .NET Framework
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Setup MSBuild
+        uses: microsoft/setup-msbuild@v1.3
+
+      - name: Setup NuGet
+        uses: NuGet/setup-nuget@v1.1.1
+
+      - name: Restore NuGet Packages
+        run: nuget restore MyApp.sln
+
+      - name: Build with MSBuild
+        run: msbuild MyApp.sln /p:Configuration=Release
