@@ -28,3 +28,6 @@ jobs:
         run: msbuild MyApp.sln /p:Configuration=Release /p:Platform=x64
       - name: Run Tests
         run: dotnet test --no-build --verbosity normal
+        
+      - name: Run Unit Tests
+        run: vstest.console.exe MyApp.Tests\bin\x64\Release\net48\MyApp.Tests.dll
