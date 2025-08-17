@@ -33,7 +33,10 @@ jobs:
         shell: pwsh    
 
       - name: Run Unit Tests(full path)
-        run: '"C:\Program Files (x86)\Microsoft Visual Studio\2022\Enterprise\Common7\IDE\Extensions\TestPlatform\vstest.console.exe" MyApp.Tests\bin\x64\Release\net48\MyApp.Tests.dll'
+        run: |
+            & "C:\Program Files (x86)\Microsoft Visual Studio\2022\Enterprise\Common7\IDE\Extensions\TestPlatform\vstest.console.exe" "MyApp.Tests\bin\x64\Release\net48\MyApp.Tests.dll"
+  shell: pwsh
+
         shell: pwsh
         
       - name: Run Unit Tests
